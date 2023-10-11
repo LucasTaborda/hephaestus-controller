@@ -6,6 +6,7 @@ public class InputAction : MonoBehaviour
     [SerializeField] protected string[] _inputsNames;
     protected Dictionary<string, float> _inputs = new Dictionary<string, float>();
 
+
     protected virtual void Awake()
     {
         foreach (var name in _inputsNames)
@@ -13,6 +14,7 @@ public class InputAction : MonoBehaviour
             _inputs.Add(name, 0);
         }
     }
+
 
     protected virtual void Update()
     {
@@ -27,5 +29,4 @@ public class InputAction : MonoBehaviour
             _inputs[name] = Input.GetAxisRaw(name);
         }
     }
-
 }
