@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Hephaestus
 {
-    public class AxisAction : MonoBehaviour, IInputAction
+    public abstract class AxisAction : MonoBehaviour, IInputAction
     {
         [SerializeField] protected string[] _axisesToGet;
         protected Dictionary<string, float> _inputs = new();
