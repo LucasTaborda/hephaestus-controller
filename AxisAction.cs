@@ -8,6 +8,7 @@ namespace Hephaestus
         [SerializeField] protected string[] _axisesToGet;
         protected Dictionary<string, float> _inputs = new();
 
+
         void Awake()
         {
             foreach (var name in _axisesToGet)
