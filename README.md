@@ -23,9 +23,10 @@ La idea es que en lugar de tener un componente Controller que abarque todo, tene
 
 **Button up:** `_onButtonUpEvents.Add("Fire1", MiOtroMetodo);`
 
-#### Aclaración
+#### Aclaraciones
 
-Si se necesita utilizar el método Update de Unity, se debe overridear utilizando `base.Update()` o Hephaestus no funcionará correctamente.
+- Si se necesita utilizar el método Update de Unity, se debe overridear utilizando `base.Update()` o Hephaestus no funcionará correctamente.
+- Si su acción hereda de ButtonAction, y no necesita usar los dos diccionarios de eventos, puede overridear el método Awake e instanciar solo el que necesita.
 
 
 ## Ejemplo de clase Movimiento utilizando Hephaestus:
