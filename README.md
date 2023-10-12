@@ -70,7 +70,13 @@ public class Movement : AxisAction
 
     private void Move()
     {
-        var currentSpeed = (_direction.x != 0 && _direction.z != 0) ? _diagonalSpeed : _movementSpeed; 
+        float currentSpeed;
+
+        if(_direction.x != 0 && _direction.z != 0)
+            currentSpeed = _diagonalSpeed;
+        else
+            currentSpeed = _movementSpeed; 
+
         _controller.Move(_direction * currentSpeed * Time.deltaTime);
     }
 
@@ -92,7 +98,13 @@ public class Movement : AxisAction
         if (!_isRotating) return;
 
         var targetRotation = Quaternion.LookRotation(_lastDirection);
-        var currentRotation = Quaternion.Lerp(_body.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+
+        var currentRotation = Quaternion.Lerp(
+            _body.transform.rotation,
+            targetRotation,
+            Time.deltaTime * rotationSpeed
+        );
+
         _body.transform.rotation = currentRotation;
 
         var progress = Mathf.InverseLerp(0, 1, Quaternion.Dot(_body.transform.rotation, targetRotation));
