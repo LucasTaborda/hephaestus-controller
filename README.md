@@ -10,18 +10,18 @@ La idea es que en lugar de tener un componente Controller que abarque todo, tene
 
 1. Crear un componente que herede de AxisAction.
 2. Asignar el componente que creaste a tu gameObject del player
-3. En el campo Axises To Get  del componente mostrados en el inspector, asignar los nombres de los inputs que va a esperar recibir (Deben estar definidos en los axis del Input Manager).
+3. En el campo Axises To Get  del componente mostrado en el inspector, asignar los nombres de los inputs que va a esperar recibir (Deben estar definidos en los axis del Input Manager).
 4. Dentro del componente acceder a los axis de la siguiente manera: `_inputs["Nombre del axis"]`.
 
 ### Si tu acción necesita Eventos de botón presionado o levantado (Por ejemplo disparos)
 
-1. Crear un componente qe herede de ButtonAction.
+1. Crear un componente que herede de ButtonAction.
 2. Asignar el componente que creaste a tu gameObject del player
 3. Suscribir un método al evento requerido de las siguientes maneras (dentro del componente que creaste):
 
 **Button down:** `_onButtonDownEvents.Add("Fire1", MiMetodo);`
 
-**Button up:** `_onButtonUpEvents.Add("Fire2", MiOtroMetodo);`
+**Button up:** `_onButtonUpEvents.Add("Fire1", MiOtroMetodo);`
 
 #### Aclaración
 
