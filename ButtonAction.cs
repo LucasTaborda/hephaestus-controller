@@ -3,12 +3,19 @@ using UnityEngine;
 
 namespace Hephaestus
 {
-    public class ButtonAction : MonoBehaviour, IInputAction
+    public abstract class ButtonAction : MonoBehaviour, IInputAction
     {
         protected delegate void MethodSubscriptor();
         protected Dictionary<string, MethodSubscriptor> _onButtonDownEvents;
         protected Dictionary<string, MethodSubscriptor> _onButtonUpEvents;
 
+
+        protected virtual void Awake()
+        {
+            _onButtonDownEvents = new();
+            _onButtonUpEvents = new();
+        }
+        
 
         protected virtual void Update()
         {
