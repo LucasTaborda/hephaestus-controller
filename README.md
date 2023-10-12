@@ -108,7 +108,8 @@ public class Movement : AxisAction
 
         _body.transform.rotation = currentRotation;
 
-        var progress = Mathf.InverseLerp(0, 1, Quaternion.Dot(_body.transform.rotation, targetRotation));
+        var dot = Quaternion.Dot(_body.transform.rotation, targetRotation);
+        var progress = Mathf.InverseLerp(0, 1, dot);
         if (progress >= 1) _isRotating = false;
     }
 }
